@@ -32,6 +32,15 @@ if(${APPLE})
     )
 endif()
 
+if(${LINUX})
+    find_package(OpenGL REQUIRED)
+    target_link_libraries(
+        skia-glfw-template
+        PUBLIC
+        ${OPENGL_LIBRARIES}
+    )
+endif()
+
 FetchContent_Declare(
     glfw
     GIT_REPOSITORY https://github.com/glfw/glfw
